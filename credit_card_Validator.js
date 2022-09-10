@@ -27,7 +27,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Add your functions below:
 //validate credit card function using Luhn Algo
-//iterate through the array of numbers, right to left, ie decedning, probably using a for i--, as you itereate double EVERYOTHER the digit, 
+//iterate through the array of numbers, right to left, ie descending, probably using a for i--, as you itereate double EVERYOTHER the digit, 
 //if digit is greater than nine remove 9 from it. 
 //then sum up all digits. If modulo 10 = 0. return true. Else return false
 
@@ -35,12 +35,28 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 const validateCred = (arr) => {
   let test = []
   let secondA = []
-  for(let i = arr.length; i >= 0; i--){
-   test.push(arr[i]*2) //forgot to double everyother digit. No wonder why it wasnt working.
-   
+  // for(let i = arr.length; i >= 0; i--){
+  //   //forgot to double everyother digit. No wonder why it wasnt working.
+  //  //check indexof i in test array and if it remainder when divide by 2 == 0 then it needs to be *2
+  //  if(arr.indexOf(i) % 2 != 0){
+  //   test.push(arr[i])
+  //  } else{
+  //   test.push(arr[i] *2)
+  //  }
     
+  // }
+  let reverse = arr.reverse()
+  
+  for(let i = 0; i < reverse.length; i++){
+    if(reverse.indexOf(i) % 2 != 0){
+      test.push(reverse[i])
+     } else{
+      test.push(reverse[i] *2)
+     }
   }
+
   console.log('arr: ',arr)
+  console.log(reverse)
   console.log('test arr: ',test)
   
   for(j = test.length; j >= 0; j--){
