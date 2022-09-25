@@ -33,8 +33,10 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 const validateCred = (arr) => {
+  let mainArr = arr
   let test = []
   let secondA = []
+  let arrLength = arr.length
   // for(let i = arr.length; i >= 0; i--){
   //   //forgot to double everyother digit. No wonder why it wasnt working.
   //  //check indexof i in test array and if it remainder when divide by 2 == 0 then it needs to be *2
@@ -45,9 +47,11 @@ const validateCred = (arr) => {
   //  }
     
   // }
-  let reverse = arr.reverse()
+  let reverse = mainArr.reverse()
+  console.log('arr: ',mainArr)
+  console.log('Reverse arr', reverse)
   
-  for(let i = 0; i < reverse.length; i++){
+  for(let i = 0; i < arrLength; i++){
     if(reverse.indexOf(i) % 2 != 0){
       test.push(reverse[i])
      } else{
@@ -55,8 +59,7 @@ const validateCred = (arr) => {
      }
   }
 
-  console.log('arr: ',arr)
-  console.log(reverse)
+  
   console.log('test arr: ',test)
   
   for(j = test.length; j >= 0; j--){
