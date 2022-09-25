@@ -67,19 +67,60 @@ const validateCred = (arr) => {
 console.log(validateCred(valid1));
 
 //itteraing through nested array check to see if card is valid
-//if it is valid
+let badBatch = [];
 const findInvalidCards = (arr) => {
   let batchArr = arr;
-  let badBatch = []
   batchArr.forEach((elem) => {
     if (validateCred(elem) === true) {
-      console.log("true");
     } else if (validateCred(elem) === false) {
-      badBatch.push(elem)
+      badBatch.push(elem);
     }
-   
   });
-   return badBatch
+  return badBatch;
 };
 
 findInvalidCards(batch)
+
+
+
+let badCompCard = []
+const idInvalidCardCompanies = (arr) => {
+  let badArr = arr;
+  console.log(arr)
+for(let i = 0; i < badArr.length; i++){
+     if(badArr[i][0] === 3){
+      badCompCard.push('Amex (American Express)')
+    } else if (badArr[i][0] === 4){
+      badCompCard.push('Visa')
+    } else if (badArr[i][0] === 5){
+       badCompCard.push('Mastercard')
+    } else if (badArr[i][0] === 6) {
+      badCompCard.push('Discover')
+    } else {
+      badCompCard.push('Company Not Found')
+      console.log('Company Not Found')
+    }
+}
+
+console.log(badCompCard)
+
+
+
+  //badArr.forEach((elem, index) => {
+    //if(elem[0] === 3){
+      //badCompCard.push('Amex (American Express)')
+   // } else if (elem[0] === 4){
+    //  badCompCard.push('Visa')
+   // } else if (elem[0] === 5){
+   //    badCompCard.push('Mastercard')
+   // } else if (elem[0] === 6) {
+   //   badCompCard.push('Discover')
+  //  } else {
+  //    badCompCard.push('Company Not Found')
+  //    console.log('Company Not Found')
+  //  }
+ // })
+  //console.log(badCompCard);
+};
+
+idInvalidCardCompanies(badBatch);
